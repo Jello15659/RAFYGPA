@@ -18,6 +18,7 @@ public class GameMaster : MonoBehaviour
 
     public void RespawnPlayer()
     {
+
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
     }
     // Start is called before the first frame update

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     }
     public PlayerStats playerStats = new PlayerStats();
     public int deathZone = -20;
+    public Transform spawnPoint;
 
     public void DamagePlayer(int damage)
     {
@@ -19,7 +20,8 @@ public class Player : MonoBehaviour
 
         if(playerStats.health <= 0)
         {
-            GameMaster.KillPlayer(this);
+            //GameMaster.KillPlayer(this);
+            transform.position = spawnPoint.transform.position;
         }
     }
 
