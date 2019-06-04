@@ -3138,8 +3138,38 @@ PrefabInstance:
       objectReference: {fileID: 1726250322}
     - target: {fileID: 7828467482229771102, guid: fad3967d46b044cdbab1e8193b601382,
         type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828467482229771102, guid: fad3967d46b044cdbab1e8193b601382,
+        type: 3}
       propertyPath: m_JumpForce
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828467482229771102, guid: fad3967d46b044cdbab1e8193b601382,
+        type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828467482229771102, guid: fad3967d46b044cdbab1e8193b601382,
+        type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828467482229771102, guid: fad3967d46b044cdbab1e8193b601382,
+        type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7828467482645046875}
+    - target: {fileID: 7828467482229771102, guid: fad3967d46b044cdbab1e8193b601382,
+        type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: onLanding
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828467482229771102, guid: fad3967d46b044cdbab1e8193b601382,
+        type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7828467482229771103, guid: fad3967d46b044cdbab1e8193b601382,
         type: 3}
@@ -3185,3 +3215,15 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7828467482645046865}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7828467482645046875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7828467482229771103, guid: fad3967d46b044cdbab1e8193b601382,
+    type: 3}
+  m_PrefabInstance: {fileID: 7828467482645046865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7828467482645046866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cceb37a3ceaf24749acbb960fd47e1ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

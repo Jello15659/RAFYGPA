@@ -14,10 +14,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        animator.SetFloat("Speed", horizontalMove);
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+            animator.SetBool("IsJumping", jump);
         }
 
         if (Input.GetButtonDown("Crouch"))
@@ -28,6 +29,11 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = false;
         }
+    }
+
+    public void onLanding()
+    {
+        animator.SetBool("IsJumping", false);
     }
 
     void FixedUpdate()
