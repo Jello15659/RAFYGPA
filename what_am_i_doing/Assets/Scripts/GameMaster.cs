@@ -8,6 +8,7 @@ public class GameMaster : MonoBehaviour
 
     public Transform playerPrefab;
     public Transform spawnPoint;
+    //public int waitTime = 1;
     void Start()
     {
         if(gm == null)
@@ -18,7 +19,7 @@ public class GameMaster : MonoBehaviour
 
     public void RespawnPlayer()
     {
-
+        //yield return new WaitForSeconds(waitTime);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
     }
     // Start is called before the first frame update
