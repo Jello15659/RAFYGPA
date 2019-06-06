@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public float speed;
     private Transform target;
+    public Player player = new Player();
+    //public PlayerStats playerStats = new PlayerStats();
 
     // Start is called before the first frame update
     void Start()
@@ -21,5 +23,18 @@ public class Enemy : MonoBehaviour
             return;
         }
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        //if (col.tag == "Player")
+        //{
+        //    playerStats.health = playerStats - 1;
+        //}
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "Player")
+        {
+            player.DamagePlayer(1);
+            Debug.Log("Called");
+        }
     }
 }

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     {
         // Start is called before the first frame update
         public int health = 100;
+        
     }
     public PlayerStats playerStats = new PlayerStats();
     public int deathZone = -20;
@@ -17,9 +18,10 @@ public class Player : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         playerStats.health -= damage;
-
+        Debug.Log("damaged");
         if(playerStats.health <= 0)
         {
+            Debug.Log("less health");
             StartCoroutine(KillPlayer());
             //GameMaster.KillPlayer(this);
             //transform.position = new Vector3(-999f, -999f, -999f);
@@ -30,13 +32,23 @@ public class Player : MonoBehaviour
         }
     }
 
+
     void Update()
     {
         if (transform.position.y <= deathZone)
         {
             DamagePlayer(9999);
         }
+
     }
+
+    //void OnTriggerEnter(Collider col)
+    //{
+    //    if (col.tag == "Enemy")
+    //    {
+    //        DamagePlayer(1);
+    //    }
+    //}
 
     public IEnumerator KillPlayer()
     {
