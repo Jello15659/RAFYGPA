@@ -32,8 +32,8 @@ public class CharacterController2D : MonoBehaviour
 
     
     private int extraJumps;
+    public int numJumps = 0;
     public int extraJumpsValue;
-
     /*void Start()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -149,11 +149,21 @@ public class CharacterController2D : MonoBehaviour
             }
         }
         // If the player should jump...
-        if (m_Grounded && jump)
+        if (m_Grounded)
+        {
+            numJumps = 0;
+        }
+        if (jump && numJumps < 2)
         {
             // Add a vertical force to the player.
-            m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+
+            m_Rigidbody2D.velocity = new Vector2(move * 10f, 0);
+            m_Rigidbody2D.angularVelocity = 0f;
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+
+
+            numJumps++;
         }
     }
 
