@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Audio;
+using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -16,12 +17,26 @@ public class AudioManager : MonoBehaviour
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        Play("backround");
+    }
+
+    // Update is called once per frame
+    public void Play(string name)
+    {
+        Sound theSound = null;
+        foreach(Sound s in sounds)
+        {
+            if (s.name.CompareTo(name) == 0)
+            {
+                theSound = s;
+            }
+        }
+        theSound.source.Play();
     }
 }
