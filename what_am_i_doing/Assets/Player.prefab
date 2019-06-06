@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 7828467482229771102}
   runSpeed: 100
+  animator: {fileID: 0}
 --- !u!61 &7828467482229771100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,7 +211,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13604927, y: 0.21780777}
+  m_Offset: {x: 0.13604927, y: -0.105011225}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -221,7 +222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.66045, y: 1.1248913}
+  m_Size: {x: 1.6256695, y: 1.7705293}
   m_EdgeRadius: 0
 --- !u!50 &7828467482229771075
 Rigidbody2D:
@@ -330,3 +331,5 @@ MonoBehaviour:
   playerStats:
     health: 100
   deathZone: -20
+  spawnPoint: {fileID: 0}
+  deathDelay: 0.5

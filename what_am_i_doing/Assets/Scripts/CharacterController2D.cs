@@ -18,6 +18,7 @@ public class CharacterController2D : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
+    private bool isGrounded;
 
     [Header("Events")]
     [Space]
@@ -29,6 +30,17 @@ public class CharacterController2D : MonoBehaviour
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
 
+    
+    private int extraJumps;
+    public int extraJumpsValue;
+
+    /*void Start()
+    {
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+            extraJumps = extraJumpsValue;
+        }
+    */
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -39,6 +51,19 @@ public class CharacterController2D : MonoBehaviour
         if (OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
     }
+
+    /*void update()
+    {
+        if (isGrounded == true)
+        {
+            extraJumps = extraJumpsValue;
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps == 0 && isGrounded == true)
+        {
+            m_Rigidbody2D.velocity = Vector2.up * m_JumpForce;
+        }
+    }
+    */
 
     private void FixedUpdate()
     {

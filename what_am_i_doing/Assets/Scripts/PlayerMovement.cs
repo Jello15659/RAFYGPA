@@ -10,17 +10,22 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
     public Animator animator;
-    // Update is called once per frame
+
+    private Rigidbody2D rb;
+
+    private int extraJumps;
+    public int extraJumpValue;
+
+
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && extraJumps != 0)
         {
             jump = true;
             animator.SetBool("IsJumping", jump);
         }
-
         if (Input.GetButtonDown("Crouch"))
         {
             crouch = true;
