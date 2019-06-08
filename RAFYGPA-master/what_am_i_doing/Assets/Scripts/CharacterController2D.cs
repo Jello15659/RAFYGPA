@@ -19,6 +19,12 @@ public class CharacterController2D : MonoBehaviour
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
     private bool isGrounded;
+    public float dashSpeed;
+    public float startDashTime;
+    private float dashTime;
+    private bool dashing;
+    public float dashCooldown;
+    private float timeStamp;
 
     [Header("Events")]
     [Space]
@@ -50,6 +56,7 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
+        dashTime = startDashTime;
     }
 
     /*void update()
@@ -102,8 +109,8 @@ public class CharacterController2D : MonoBehaviour
         {
 
             // If crouching
-            if (crouch)
-            {
+            if (crouch && isGrounded)
+            { 
                 if (!m_wasCrouching)
                 {
                     m_wasCrouching = true;
@@ -177,5 +184,46 @@ public class CharacterController2D : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+     public void Zoom()
+    {
+        if (timeStamp <= Time.time)
+        {
+
+            timeStamp = Time.time + dashCooldown;
+            if (dashTime <= 0)
+            {
+                dashTime = startDashTime;
+                if (m_FacingRight)
+                {
+                    m_Rigidbody2D.AddForce(new Vector2(-dashSpeed, 0f));
+
+                }
+
+                else
+                {
+                    m_Rigidbody2D.AddForce(new Vector2(dashSpeed, 0f));
+
+                }
+            }
+
+            else
+            {
+                dashTime -= Time.deltaTime;
+                if (m_FacingRight)
+                {
+                    m_Rigidbody2D.AddForce(new Vector2(dashSpeed, 0f));
+                }
+
+
+                else if (!m_FacingRight)
+                {
+                    m_Rigidbody2D.AddForce(new Vector2(-dashSpeed, 0f));
+
+                }
+
+            }
+        }
     }
 }

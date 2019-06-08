@@ -10,17 +10,26 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
     public Animator animator;
+    public float crouchMultiplier = 0.5f;
 
     private Rigidbody2D rb;
 
     private int extraJumps;
     public int extraJumpValue;
 
+    float original;
+
+    void Start()
+    {
+        original = runSpeed;
+    }
+
 
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
@@ -29,11 +38,19 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Crouch"))
         {
             crouch = true;
+            animator.SetBool("IsCrouching", crouch);
+            runSpeed = crouchMultiplier * runSpeed;
         }
         else if (Input.GetButtonUp("Crouch"))
         {
             crouch = false;
+            animator.SetBool("IsCrouching", false);
+            runSpeed = original;
         }
+        else if (Input.GetButtonDown("Dash")){
+            controller.Zoom();
+        }
+
     }
 
     public void onLanding()
@@ -44,6 +61,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        jump = false;
+        jump = false;   
     }
 }
