@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public class PlayerStats
     {
         // Start is called before the first frame update
-        public int health = 100;
+        public int health = 1;
         
     }
     public PlayerStats playerStats = new PlayerStats();
@@ -42,13 +42,7 @@ public class Player : MonoBehaviour
 
     }
 
-    //void OnTriggerEnter(Collider col)
-    //{
-    //    if (col.tag == "Enemy")
-    //    {
-    //        DamagePlayer(1);
-    //    }
-    //}
+
 
     public IEnumerator KillPlayer()
     {
