@@ -9,20 +9,23 @@ public class Player : MonoBehaviour
     {
         // Start is called before the first frame update
         public int health = 1;
-        
+
     }
     public PlayerStats playerStats = new PlayerStats();
     public int deathZone = -20;
     public Transform spawnPoint;
     public float deathDelay = 0.5f;
+    this.gameObject.AddComponent<Player>();
+    Player thePlayer = this.GetComponent<Player>();
     public void DamagePlayer(int damage)
+
     {
         playerStats.health -= damage;
         Debug.Log("damaged");
         if(playerStats.health <= 0)
         {
             Debug.Log("less health");
-            StartCoroutine(KillPlayer());
+            StartCoroutine(thePlayer.KillPlayer());
             //GameMaster.KillPlayer(this);
             //transform.position = new Vector3(-999f, -999f, -999f);
             //GetComponent<Renderer>().enabled = false;
