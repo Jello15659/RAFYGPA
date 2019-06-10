@@ -15,8 +15,8 @@ public class Player : MonoBehaviour
     public int deathZone = -20;
     public Transform spawnPoint;
     public float deathDelay = 0.5f;
-    this.gameObject.AddComponent<Player>();
-    Player thePlayer = this.GetComponent<Player>();
+    // this.gameObject.AddComponent<Player>();
+    // Player thePlayer = this.GetComponent<Player>();
     public void DamagePlayer(int damage)
 
     {
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         if(playerStats.health <= 0)
         {
             Debug.Log("less health");
-            StartCoroutine(thePlayer.KillPlayer());
+            //StartCoroutine(thePlayer.KillPlayer());
             //GameMaster.KillPlayer(this);
             //transform.position = new Vector3(-999f, -999f, -999f);
             //GetComponent<Renderer>().enabled = false;
