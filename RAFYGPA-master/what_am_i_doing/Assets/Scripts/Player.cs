@@ -15,12 +15,14 @@ public class Player : MonoBehaviour
     public int deathZone = -20;
     public Transform spawnPoint;
     public float deathDelay = 0.5f;
+    public GameObject gpa;
 
     public void DamagePlayer(int damage)
 
     {
         playerStats.health -= damage;
         Debug.Log("damaged");
+        gpa.gameObject.SetActive(false);
         if(playerStats.health <= 0)
         {
             Debug.Log("less health");

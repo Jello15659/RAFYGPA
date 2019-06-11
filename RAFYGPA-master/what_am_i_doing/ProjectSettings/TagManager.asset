@@ -21,7 +21,7 @@ TagManager:
   - Platform
   - Entity
   - Player
-  - 
+  - CanvasLayer
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Entity
     uniqueID: 350621825
+    locked: 0
+  - name: UI
+    uniqueID: 4079676195
     locked: 0
