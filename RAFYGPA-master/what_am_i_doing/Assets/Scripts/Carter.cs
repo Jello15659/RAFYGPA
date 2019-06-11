@@ -17,6 +17,6 @@ public class Carter : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = new Vector2(velocity * Time.deltaTime, 0f);
+        rb.velocity = new Vector2(velocity * Time.deltaTime, 0f);   
     }
 }
