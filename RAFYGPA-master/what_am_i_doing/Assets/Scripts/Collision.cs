@@ -7,7 +7,7 @@ public class Collision : MonoBehaviour
     
     void Start()
     {
-        player = new Player();
+        player = GetComponent<Player>();
     }
 
     void OnCollisionEnter2D(Collision2D col)
