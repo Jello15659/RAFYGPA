@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -18,9 +19,14 @@ public class Player : MonoBehaviour
     public bool invincible = false;
     public GameObject gpa, four, three, two, one;
 
+    public void DamageTheDude(int damage)
+    {
+        StartCoroutine(DamagePlayer(damage));
+    }
     public IEnumerator DamagePlayer(int damage)
 
     {
+        Debug.Log("PENIS");
         if (!invincible)
         {
 
@@ -58,29 +64,26 @@ public class Player : MonoBehaviour
                     break;
 
                 default:
-                    four.gameObject.SetActive(false);
-                    three.gameObject.SetActive(false);
-                    two.gameObject.SetActive(false);
-                    one.gameObject.SetActive(false);
+                    SceneManager.LoadScene("GameOver");
+
                     //INSERT GAME OVER
                     break;
 
 
 
             }
-            if (playerStats.health <= 0)
-            {
-                Debug.Log("less health");
-                StartCoroutine(KillPlayer());
+            //if (playerStats.health <= 0)
+            //{
+                //Debug.Log("less health");
+                //KillPlayer();
                 //GameMaster.KillPlayer(this);
                 //transform.position = new Vector3(-999f, -999f, -999f);
                 //GetComponent<Renderer>().enabled = false;
                 //yield return new WaitForSeconds(deathDelay);
                 //transform.position = spawnPoint.transform.position;
                 //GetComponent<Renderer>().enabled = true;
-            }
+            
             invincible = true;
-
             yield return new WaitForSeconds(2);
             invincible = false;
         }
@@ -91,19 +94,30 @@ public class Player : MonoBehaviour
     {
         if (transform.position.y <= deathZone)
         {
-            StartCoroutine(DamagePlayer(9999));
+            StartCoroutine(FallDie());
         }
 
     }
 
 
 
-    public IEnumerator KillPlayer()
+    //public void KillPlayer()
+    //{
+    //    four.gameObject.SetActive(true);
+    //    three.gameObject.SetActive(false);
+    //    two.gameObject.SetActive(false);
+    //    one.gameObject.SetActive(false);
+    //    playerStats.health = 4;
+    //}
+
+    public IEnumerator FallDie()
     {
         GetComponent<Renderer>().enabled = false;
         yield return new WaitForSeconds(deathDelay);
         GetComponent<Renderer>().enabled = true;
         transform.position = spawnPoint.transform.position;
+        StartCoroutine(DamagePlayer(1));
+
 
     }
 }

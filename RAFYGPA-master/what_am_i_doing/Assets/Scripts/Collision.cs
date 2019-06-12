@@ -16,7 +16,7 @@ public class Collision : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             Debug.Log("TriedToKill");
-            player.DamagePlayer(1);
+            player.DamageTheDude(1);
         }
     }
 }
