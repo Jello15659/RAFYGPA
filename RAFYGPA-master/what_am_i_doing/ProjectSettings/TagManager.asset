@@ -8,6 +8,8 @@ TagManager:
   - Block
   - GM
   - Enemy
+  - End
+  - Carter
   layers:
   - Default
   - TransparentFX

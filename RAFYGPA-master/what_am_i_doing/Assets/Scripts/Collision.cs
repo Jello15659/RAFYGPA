@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Collision : MonoBehaviour
 {
@@ -17,6 +18,16 @@ public class Collision : MonoBehaviour
         {
             Debug.Log("TriedToKill");
             player.DamageTheDude(1);
+        }
+
+        else if (col.gameObject.tag == "End")
+        {
+            SceneManager.LoadScene("Win");
+        }
+
+        else if (col.gameObject.tag == "Carter")
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
