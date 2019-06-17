@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     public IEnumerator DamagePlayer(int damage)
 
     {
-        Debug.Log("PENIS");
         if (!invincible)
         {
 
